@@ -8,11 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
+      colors: {
+        'primary': "#1b0000", //dark brown
+        'primary-text': "#0C1618", //rich black
+        'accent': "#b57f50", //copper
+        'background': '#ecf0f1', //light gray
+        // 'background': "#FAF4D3", //consilk
+        'secondary': "#6db1bf", //light blue
+      }
     },
   },
   plugins: [],
