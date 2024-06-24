@@ -17,8 +17,8 @@ const RotatingHamburger = ({open, setOpen}: Props) => {
       className="flex-shrink-0 w-14 h-12 flex flex-col justify-center items-center relative md:hidden border-none">
       <span
         className={
-          "w-full h-[6px] bg-primary-text rounded-lg transition-all ease-in duration-300 absolute " +
-          (open ? "origin-center rotate-[400deg]" : "translate-y-[-16px]")
+          "w-full h-[6px] bg-black rounded-lg transition-all ease-in duration-300 absolute " +
+          (open ? "origin-center rotate-[400deg] bg-secondary" : "translate-y-[-16px]")
         }
       />
       <span
@@ -29,7 +29,7 @@ const RotatingHamburger = ({open, setOpen}: Props) => {
       <span
         className={
           "w-full h-[6px] bg-accent rounded-lg transition-all ease-in duration-300 absolute " +
-          (open ? "origin-center -rotate-45 bg-black" : "translate-y-[16px]")
+          (open ? "origin-center -rotate-45 bg-accent" : "translate-y-[16px]")
         }
       />
     </button>
