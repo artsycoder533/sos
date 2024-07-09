@@ -5,6 +5,7 @@ import RotatingHamburger from "./RotatingHamburger";
 import { useEffect } from "react";
 import Image from "next/image";
 import logo from "../../../public/images/shades.png";
+import { signOut, signIn } from "next-auth/react";
 
 const navItems = [
   { link: "Home", path: "/" },
@@ -13,12 +14,12 @@ const navItems = [
   { link: "Contact", path: "/contact" },
 ];
 
-type Props = {};
+type Props = {
+  user?: string;
+};
 
-const Navbar = (props: Props) => {
+const Navbar = ({user}: Props) => {
   const [open, setOpen] = useState(false);
-
-  const isUserLoggedIn = false;
 
   useEffect(() => {
     if (open) {
@@ -63,24 +64,24 @@ const Navbar = (props: Props) => {
           );
         })}
         <Link href="/" className="lg:hidden">
-          {isUserLoggedIn ? (
-            <button className="p-3 bg-secondary text-white rounded flex-shrink-0 hover:opacity-90">
+          {user ? (
+            <button onClick={() => signOut()} className="p-3 bg-secondary text-white rounded flex-shrink-0 hover:opacity-90">
               Logout
             </button>
           ) : (
-            <button className="p-3 bg-secondary text-white rounded flex-shrink-0 hover:opacity-90">
+            <button onClick={() => signIn()} className="p-3 bg-secondary text-white rounded flex-shrink-0 hover:opacity-90">
               Member Login
             </button>
           )}
         </Link>
       </ul>
       <div className="hidden lg:block">
-        {isUserLoggedIn ? (
-          <button className="p-3 bg-secondary text-white rounded flex-shrink-0 hover:opacity-90">
+        {user ? (
+          <button onClick={() => signOut()} className="p-3 bg-secondary text-white rounded flex-shrink-0 hover:opacity-90">
             Logout
           </button>
         ) : (
-          <button className="p-3 bg-secondary text-white rounded flex-shrink-0 hover:opacity-90">
+          <button onClick={() => signIn()} className="p-3 bg-secondary text-white rounded flex-shrink-0 hover:opacity-90">
             Member Login
           </button>
         )}
